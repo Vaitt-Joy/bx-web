@@ -1,8 +1,9 @@
-from django.conf.urls import include, url
-from . import views
+from django.conf.urls import url
+
+from web.views import accountViews, views
 
 urlpatterns = [
-    
+
     url(r'^$', views.start, name='sb_admin_start'),
     url(r'^dashboard/$', views.dashboard, name='sb_admin_dashboard'),
     url(r'^charts/$', views.charts, name='sb_admin_charts'),
@@ -12,5 +13,6 @@ urlpatterns = [
     url(r'^bootstrap-grid/$', views.bootstrap_grid, name='sb_admin_bootstrap_grid'),
     url(r'^rtl-dashboard/$', views.rtl_dashboard, name='sb_admin_rtl_dashboard'),
     url(r'^blank/$', views.blank, name='sb_admin_blank'),
-    url(r'^login/$', views.login, name='login'),
+    url(r'^login/$', accountViews.login, name='login'),
+    url(r'^logout/$', accountViews.logout_views, name='logout'),
 ]

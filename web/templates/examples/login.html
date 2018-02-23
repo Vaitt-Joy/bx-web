@@ -1,4 +1,4 @@
-{% extends "django_sb_admin/base.html" %}
+{% extends "base.html" %}
 {% block title %}Login{% endblock title %}
 {% block sb_admin_navbar_right %}{% endblock sb_admin_navbar_right %}
 {% block sb_admin_sidebar %}{% endblock sb_admin_sidebar %}
@@ -12,6 +12,6 @@
     {% block extrastyle %}{{ block.super }}
         <link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}"/>{% endblock %}
     {% block content %}
-        {% include "django_sb_admin/login.html" %}
+        {% include "django_sb_admin/../login.html" %}
     {% endblock %}
 {% endblock %}

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Android Manage Login</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
@@ -32,18 +32,28 @@
         <div class="col-md-4 col-md-offset-4">
             <div style="margin-top: 200px">
                 <div class="panel-heading">
-                    <h3 class="panel-title text-center">Sign In</h3>
+                    <h1 class="panel-title text-center">Sign In</h1>
                 </div>
+                {% if password_is_wrong %}
+                    <div class="text-center panel-red">
+                        <span>{{ message }}</span>
+                    </div>
+                {% endif %}
                 <div class="panel-body">
-                    <form role="form">
+                    <form role="form" method="post">
+                        {% csrf_token %}
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="email"
-                                       autofocus>
+                                {#                                <input class="form-control" placeholder="E-mail" name="email" type="email"#}
+                                {#                                       autofocus>#}
+                                {{ af.username }}
+                                {#                                <span class="icon icon-user margin-small"></span>#}
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password"
-                                       value="">
+                                {#                                <input class="form-control" placeholder="Password" name="password" type="password"#}
+                                {#                                       value="">#}
+                                {{ af.password }}
+                                {#                                <span class="icon icon-key margin-small"></span>#}
                             </div>
                             <div class="checkbox">
                                 <label>
@@ -51,7 +61,11 @@
                                 </label>
                             </div>
                             <!-- Change this to a button or input when using this as a form -->
-                            <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                            {#                            <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>#}
+                            <div>
+                                <input type="submit"
+                                       class="btn btn-lg btn-success btn-block" value="登录">
+                            </div>
                         </fieldset>
                     </form>
                 </div>
