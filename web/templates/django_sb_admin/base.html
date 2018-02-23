@@ -47,7 +47,7 @@
             </button>
             <a class="navbar-brand"
                href="{% block sb_admin_header_url %}{% url "sb_admin_start" %}{% endblock sb_admin_header_url %}">
-                {% block sb_admin_header %}Django SB Admin{% endblock sb_admin_header %}</a>
+                {% block sb_admin_header %}Android后台管理系统{% endblock sb_admin_header %}</a>
         </div>
         <!-- Top Menu Items -->
         {% block sb_admin_navbar_right %}
@@ -65,7 +65,7 @@
                                     <div class="media-body">
                                         <h5 class="media-heading">
                                             <strong>{% if user.username %}{{ user.username }}{% else %}
-                                                Anonymous{% endif %}</strong>
+                                                admin{% endif %}</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
                                         </p>
@@ -166,6 +166,7 @@
             </ul>{% endblock sb_admin_navbar_right %}
         {% block sb_admin_sidebar %}<!--
              Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+{#            菜单#}
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li {% if nav_active == "start" %}class="active"{% endif %}>
@@ -281,7 +282,6 @@
                                 href="https://fortawesome.github.io/Font-Awesome/icons/">here</a>.
                     </div>
                 </div>
-                {% include "django_sb_admin/login.html" %}
             {% endblock sb_admin_content %}
 
         </div>
