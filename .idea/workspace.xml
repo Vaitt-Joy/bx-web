@@ -2,48 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8824770e-62fb-43cf-9da1-1ddfc3626075" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mysqlCon/my.cnf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/mysqlCon/mysql.db" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/start_dev.sh" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/forms.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/tools/PyTools.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/tools/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/views/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/views/accountViews.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/views/apiViews.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/web/views/pluginViews.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/BxWeb.iml" afterPath="$PROJECT_DIR$/.idea/BxWeb.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/BxWeb/settings.py" afterPath="$PROJECT_DIR$/BxWeb/settings.py" />
-      <change beforePath="$PROJECT_DIR$/BxWeb/urls.py" afterPath="$PROJECT_DIR$/BxWeb/urls.py" />
-      <change beforePath="$PROJECT_DIR$/web/admin.py" afterPath="$PROJECT_DIR$/web/admin.py" />
-      <change beforePath="$PROJECT_DIR$/web/models.py" afterPath="$PROJECT_DIR$/web/models.py" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/base.html" afterPath="$PROJECT_DIR$/web/templates/base.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/blank-page.html" afterPath="$PROJECT_DIR$/web/templates/blank-page.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/bootstrap-elements.html" afterPath="$PROJECT_DIR$/web/templates/bootstrap-elements.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/bootstrap-grid.html" afterPath="$PROJECT_DIR$/web/templates/bootstrap-grid.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/charts.html" afterPath="$PROJECT_DIR$/web/templates/charts.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/examples/login.html" afterPath="$PROJECT_DIR$/web/templates/examples/login.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/forms.html" afterPath="$PROJECT_DIR$/web/templates/forms.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/index-rtl.html" afterPath="$PROJECT_DIR$/web/templates/index-rtl.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/index.html" afterPath="$PROJECT_DIR$/web/templates/index.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/login.html" afterPath="$PROJECT_DIR$/web/templates/login.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/sb_admin_blank.html" afterPath="$PROJECT_DIR$/web/templates/sb_admin_blank.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/sb_admin_bootstrap_elements.html" afterPath="$PROJECT_DIR$/web/templates/sb_admin_bootstrap_elements.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/sb_admin_bootstrap_grid.html" afterPath="$PROJECT_DIR$/web/templates/sb_admin_bootstrap_grid.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/sb_admin_charts.html" afterPath="$PROJECT_DIR$/web/templates/sb_admin_charts.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/sb_admin_dashboard.html" afterPath="$PROJECT_DIR$/web/templates/sb_admin_dashboard.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/sb_admin_forms.html" afterPath="$PROJECT_DIR$/web/templates/sb_admin_forms.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/sb_admin_rtl_dashboard.html" afterPath="$PROJECT_DIR$/web/templates/sb_admin_rtl_dashboard.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/sb_admin_tables.html" afterPath="$PROJECT_DIR$/web/templates/sb_admin_tables.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/start.html" afterPath="$PROJECT_DIR$/web/templates/start.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/tables.html" afterPath="$PROJECT_DIR$/web/templates/tables.html" />
-      <change beforePath="$PROJECT_DIR$/web/templates/django_sb_admin/user/login.html" afterPath="$PROJECT_DIR$/web/templates/user/login.html" />
-      <change beforePath="$PROJECT_DIR$/web/urls.py" afterPath="$PROJECT_DIR$/web/urls.py" />
-      <change beforePath="$PROJECT_DIR$/web/views.py" afterPath="$PROJECT_DIR$/web/views/views.py" />
+      <change beforePath="$PROJECT_DIR$/web/templates/base.html" afterPath="$PROJECT_DIR$/web/templates/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -177,8 +137,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="227" column="55" lean-forward="false" selection-start-line="227" selection-start-column="50" selection-end-line="227" selection-end-column="55" />
+            <state relative-caret-position="1314">
+              <caret line="283" column="22" lean-forward="true" selection-start-line="283" selection-start-column="22" selection-end-line="283" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -265,8 +225,8 @@
         <option value="$PROJECT_DIR$/web/views/views.py" />
         <option value="$PROJECT_DIR$/web/urls.py" />
         <option value="$PROJECT_DIR$/web/templates/examples/login.html" />
-        <option value="$PROJECT_DIR$/web/templates/base.html" />
         <option value="$PROJECT_DIR$/web/static/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/web/templates/base.html" />
       </list>
     </option>
   </component>
@@ -353,6 +313,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="SearchEverywhereHistoryKey" value="base&#9;FILE&#9;file:///home/vic/devEnv/code/pythonCode/bx-web/web/templates/base.html" />
+    <property name="GO_FMT" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -596,12 +557,20 @@
       <updated>1519320304485</updated>
       <workItem from="1519358788740" duration="7285000" />
       <workItem from="1519385857429" duration="3297000" />
-      <workItem from="1519389268988" duration="4947000" />
+      <workItem from="1519389268988" duration="5087000" />
     </task>
+    <task id="LOCAL-00001" summary="add login">
+      <created>1519394499427</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1519394499427</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15529000" />
+    <option name="totallyTimeSpent" value="15669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="-4" width="1869" height="1084" extended-state="6" />
@@ -648,6 +617,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add login" />
+    <option name="LAST_COMMIT_MESSAGE" value="add login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -830,6 +803,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="40" lean-forward="false" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,8 +996,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="227" column="55" lean-forward="false" selection-start-line="227" selection-start-column="50" selection-end-line="227" selection-end-column="55" />
+        <state relative-caret-position="1314">
+          <caret line="283" column="22" lean-forward="true" selection-start-line="283" selection-start-column="22" selection-end-line="283" selection-end-column="22" />
           <folding />
         </state>
       </provider>
