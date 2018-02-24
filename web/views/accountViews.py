@@ -56,7 +56,7 @@ def login(req):
 
 def logout_views(req):
     logout(req)
-    login(req)
+    return login(req)
 
 
 def account_add(req):

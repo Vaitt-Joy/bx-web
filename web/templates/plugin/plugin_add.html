@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}{% load static %}{% block sb_admin_title %}Account Add{% endblock sb_admin_title %}
+{% block sb_admin_subheading %}{% endblock sb_admin_subheading %}
+{% block sb_admin_breadcrumb %}<i class="fa fa-dashboard"></i>
+    <a href="index.html">Upload Plugin</a>{% endblock sb_admin_breadcrumb %}
+{% block sb_admin_breadcrumb_active %}
+    <li class="active">
+        <i class="fa fa-table"></i> Tables
+    </li>
+{% endblock sb_admin_breadcrumb_active %}
+{% block sb_admin_content %}
+    <div class="row">
+        <h2>Plugin Upload</h2>
+        <form method="post" action="{% url "plugin" 'add' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="file">
+                <div>
+                    <input type="submit" style=" margin-top:10px;width: 150px;height: 30px"
+                           class="btn btn-xs" value="commit">
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock sb_admin_content %}

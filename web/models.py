@@ -1,4 +1,6 @@
 # coding=utf-8
+from datetime import datetime
+
 from django.db import models
 
 
@@ -97,14 +99,16 @@ class AppUpdateLog(models.Model):
     class Meta:
         db_table = 'app_update_log'
 
+    fileModel = models.IntegerField(default=-1, verbose_name="文件类型1.app的apk，2.plugin")
+
     appInfoId = models.IntegerField(default=-1)
     versionCode = models.IntegerField()
     versionName = models.CharField(max_length=10)
     baleStatus = models.IntegerField(default=0, verbose_name='打包状态')
     s3_repo_url = models.CharField(default='', max_length=255)
     oss_repo_url = models.CharField(default='', max_length=255)
-    env = models.IntegerField(default=1)
-    desc = models.CharField(default="", max_length=255)
+    env = models.IntegerField(default=1, verbose_name='升级环境')
+    desc = models.CharField(default="", max_length=255, verbose_name='升级描述')
     type = models.IntegerField(default=1, verbose_name='强更类型')  # 强更类型
     size = models.CharField(verbose_name='大小', max_length=20)
     md5 = models.CharField(verbose_name='md5', max_length=50)
@@ -114,5 +118,11 @@ class AppUpdateLog(models.Model):
     fileName = models.FileField(verbose_name='插件名称', max_length=100, )
     fileType = models.CharField(verbose_name='plugin后缀名', max_length=20)
 
-    createTime = models.DateTimeField(verbose_name='发表时间', auto_now_add=True, editable=False)
-    updateTime = models.DateTimeField(verbose_name='更新时间', auto_now=True)
+    createTime = models.DateTimeField(verbose_name='发表时间', default=datetime.now(), blank=True, editable=False)
+    updateTime = models.DateTimeField(verbose_name='更新时间', auto_now=True, blank=True)
+
+
+class UpdateCount(models.Model):
+    currCount = models.IntegerField(default=0, verbose_name='当前次数')
+    sumCount = models.IntegerField(default=0, verbose_name='总次数')
+    uuidOrMd5 = models.CharField(verbose_name='唯一字段', max_length=100)
