@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from web.views import accountViews, views
+from web.views import accountViews, views, pluginViews
 
 urlpatterns = [
 
@@ -13,6 +13,9 @@ urlpatterns = [
     url(r'^bootstrap-grid/$', views.bootstrap_grid, name='sb_admin_bootstrap_grid'),
     url(r'^rtl-dashboard/$', views.rtl_dashboard, name='sb_admin_rtl_dashboard'),
     url(r'^blank/$', views.blank, name='sb_admin_blank'),
-    url(r'^login/$', accountViews.login, name='login'),
-    url(r'^logout/$', accountViews.logout_views, name='logout'),
+
+    # url(r'^login/$', accountViews.login, name='login'),
+    url(r'^account/([a-z]+)/$', accountViews.account, name='account'),
+
+    url(r'^plugin/([a-z]+)/$', pluginViews.plugin, name='plugin'),
 ]

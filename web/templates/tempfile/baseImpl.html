@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock title %}
+{% block sb_admin_navbar_right %}{% endblock sb_admin_navbar_right %}
+{% block sb_admin_sidebar %}{% endblock sb_admin_sidebar %}
+{% block sb_admin_title %}
+    {% if title %}
+        title
+    {% else %}
+        403
+    {% endif %}
+{% endblock sb_admin_title %}
+
+{% block sb_admin_subheading %}
+    <small>Introduce your credentials</small>{% endblock sb_admin_subheading %}
+{% block sb_admin_breadcrumb %}{% endblock sb_admin_breadcrumb %}
+{% block sb_admin_breadcrumb_active %}{% endblock sb_admin_breadcrumb_active %}
+{% block sb_admin_content %}
+    {% load i18n admin_static %}
+    {% block extrastyle %}{{ block.super }}
+        <link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}"/>{% endblock %}
+    {% block content %}
+        {% if html %}
+            {% include html %}
+        {% else %}
+            {% include "error/403.html" %}
+        {% endif %}
+    {% endblock %}
+{% endblock %}

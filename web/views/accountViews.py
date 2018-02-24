@@ -8,6 +8,19 @@ from web.models import Account
 from web.tools.PyTools import get_client_ip
 
 
+def account(req, method=''):
+    if method == 'list':
+        return account_list(req)
+    elif method == 'add':
+        return account_add(req)
+    elif method == 'login':
+        return login(req)
+    elif method == 'logout':
+        return logout_views(req)
+    else:
+        return render(req, "tempfile/baseImpl.html", {"html": "error/403.html", "title": "403", "nav_active": "403"})
+
+
 def login(req):
     if req.method == 'GET':
         af = AccountForm()
@@ -43,3 +56,12 @@ def login(req):
 
 def logout_views(req):
     logout(req)
+    login(req)
+
+
+def account_add(req):
+    return render(req, "user/account_add.html", {"nav_active": "account-add"})
+
+
+def account_list(req):
+    return render(req, "user/account_list.html", {"nav_active": "account-list"})
