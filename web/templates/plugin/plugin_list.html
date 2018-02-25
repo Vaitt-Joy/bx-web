@@ -27,14 +27,10 @@
                         {% for value in data %}
                             <tr>
                                 {# table = ['id', 'fileName', 'md5', 'size', 'env', 'desc', 's3_repo_url', 'oss_repo_url']#}
-                                <td>{{ value.id }}</td>
-                                <td>{{ value.fileName }}</td>
-                                <td>{{ value.md5 }}</td>
-                                <td>{{ value.size }}</td>
-                                <td>{{ value.env }}</td>
-                                <td>{{ value.desc }}</td>
-                                <td>{{ value.s3_repo_url }}</td>
-                                <td>{{ value.oss_repo_url }}</td>
+                                {% for ta in value %}
+                                    <td>{{ ta }}</td>
+                                {% endfor %}
+
                             </tr>
                         {% endfor %}
                         </tbody>

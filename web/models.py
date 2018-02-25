@@ -1,4 +1,5 @@
 # coding=utf-8
+import hashlib
 from datetime import datetime
 
 from django.db import models
@@ -99,30 +100,74 @@ class AppUpdateLog(models.Model):
     class Meta:
         db_table = 'app_update_log'
 
-    fileModel = models.IntegerField(default=-1, verbose_name="文件类型1.app的apk，2.plugin")
-
     appInfoId = models.IntegerField(default=-1)
     versionCode = models.IntegerField()
     versionName = models.CharField(max_length=10)
     baleStatus = models.IntegerField(default=0, verbose_name='打包状态')
-    s3_repo_url = models.CharField(default='', max_length=255)
-    oss_repo_url = models.CharField(default='', max_length=255)
     env = models.IntegerField(default=1, verbose_name='升级环境')
     desc = models.CharField(default="", max_length=255, verbose_name='升级描述')
     type = models.IntegerField(default=1, verbose_name='强更类型')  # 强更类型
     size = models.CharField(verbose_name='大小', max_length=20)
     md5 = models.CharField(verbose_name='md5', max_length=50)
 
-    # 插件使用
-    plugin = models.IntegerField(default=-1)
-    fileName = models.FileField(verbose_name='插件名称', max_length=100, )
-    fileType = models.CharField(verbose_name='plugin后缀名', max_length=20)
-
     createTime = models.DateTimeField(verbose_name='发表时间', default=datetime.now(), blank=True, editable=False)
     updateTime = models.DateTimeField(verbose_name='更新时间', auto_now=True, blank=True)
 
 
+class Plugin(models.Model):
+    """
+    android 插件
+    """
+    fileName = models.FileField(verbose_name='插件名称', max_length=100, )
+    version = models.IntegerField(verbose_name='插件版本', default=1, )
+    env = models.IntegerField(verbose_name='app环境,1.正式版本，22.开发环境', default=1, )
+    fileType = models.CharField(verbose_name='plugin后缀名', max_length=20)
+    desc = models.CharField(default="", max_length=255, verbose_name='升级描述')
+    md5 = models.CharField(verbose_name='插件的md5', max_length=50)
+    createTime = models.DateTimeField(verbose_name='发表时间', auto_now_add=True, editable=False)
+    updateTime = models.DateTimeField(verbose_name='更新时间', auto_now=True)
+
+    class Meta:
+        db_table = 'plugin'
+        unique_together = ("fileName", "version", "env")  # 这是重点
+
+
 class UpdateCount(models.Model):
+    """
+    更新计数
+    """
     currCount = models.IntegerField(default=0, verbose_name='当前次数')
     sumCount = models.IntegerField(default=0, verbose_name='总次数')
-    uuidOrMd5 = models.CharField(verbose_name='唯一字段', max_length=100)
+    uuidOrMd5 = models.CharField(verbose_name='唯一字段', unique=True, max_length=100)
+
+
+class FileSystem(models.Model):
+    """
+    文件系统
+    """
+    uuidOrMd5 = models.CharField(verbose_name='唯一字段', unique=True, max_length=100)
+    localUrl = models.FileField(upload_to='upload/%Y/%m/%d', verbose_name='插件的地址', blank=False)
+    s3_url = models.CharField(max_length=255)
+    oss_url = models.CharField(max_length=255)
+    size = models.IntegerField(verbose_name='文件的大小', default=0)
+    fileTableName = models.CharField(verbose_name='文件来源表名', max_length=50)
+
+    createTime = models.DateTimeField(verbose_name='发表时间', auto_now_add=True, editable=False)
+    updateTime = models.DateTimeField(verbose_name='更新时间', auto_now=True)
+
+    def delete(self, *args, **kwargs):
+        self.localUrl.delete()
+        super(FileSystem, self).delete(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        if not self.pk:  # file is new
+            md5 = hashlib.md5()
+            for chunk in self.localUrl.chunks():
+                md5.update(chunk)
+            self.uuidOrMd5 = md5.hexdigest()
+            self.size = self.localUrl.size
+        super(FileSystem, self).save(*args, **kwargs)
+
+    class Meta:
+        db_table = 'filesystem'
+        unique_together = ("uuidOrMd5", "fileTableName")  # 这是重点
