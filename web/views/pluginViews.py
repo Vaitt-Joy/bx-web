@@ -1,12 +1,10 @@
-from datetime import datetime
-
-import collections
-
+# coding=utf-8
 import os
 from django.shortcuts import render
 
 from web.forms import PluginForm
 from web.models import Plugin, FileSystem
+from web.tools.PyTools import approximate_size
 
 
 def plugin(req, method=''):
@@ -44,7 +42,7 @@ def plugin_add(req):
                         fileSys = FileSystem(localUrl=url, fileTableName=Plugin._meta.db_table)
                         fileSys.save()
 
-                        plugin = Plugin(fileName=newName, version=int(code), desc=desc,
+                        plugin = Plugin(pluginName=newName, version=int(code), desc=desc,
                                         env=int(env), fileType=ext, md5=fileSys.uuidOrMd5)
                         plugin.save()
                         message = '上传成功!'
@@ -57,7 +55,7 @@ def plugin_add(req):
 
 
 def plugin_list(req, page=0, pagecount=10):
-    table = ['id', 'fileName', 'md5', 'size', 'env', 'desc', 's3_repo_url', 'oss_repo_url']
+    table = ['id', 'pluginName', 'md5', 'size', 'env', 'desc', 's3_repo_url', 'oss_repo_url']
     data = []
     try:
         plugins = Plugin.objects.order_by("version")[page: pagecount * (page + 1)]
@@ -68,7 +66,8 @@ def plugin_list(req, page=0, pagecount=10):
                     env = '强制更新'
                 else:
                     env = '推荐更新'
-                mapping = [value.id, value.fileName, value.md5, file.size, env, value.desc, file.s3_url,
+                size = approximate_size(file.size, False)
+                mapping = [value.id, value.pluginName, value.md5, size, env, value.desc, file.s3_url,
                            file.oss_url]
                 data.append(mapping)
     except Exception as e:

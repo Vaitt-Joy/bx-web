@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
+    'django_oss_storage',
     'web',
 ]
 
@@ -72,20 +74,20 @@ WSGI_APPLICATION = 'BxWeb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 #
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'mysqlCon/my.cnf'),
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#         'OPTIONS': {
+#             'read_default_file': os.path.join(BASE_DIR, 'mysqlCon/my.cnf'),
+#         },
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -110,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -131,3 +133,77 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = '/media/'
+
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = "smtp.163.com"
+EMAIL_HOST_PASSWORD = "my_password"
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER = "tomming233@sina.com"
+EMAIL_PORT = 25
+EMAIL_USE_TLS = True
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'log_file': {
+            'level': "INFO",
+            "class": "logging.FileHandler",
+            "formatter": "verbose",
+            "filename": os.path.join(BASE_DIR, "logs/django.log"),
+        },
+        "faillog": {
+            'level': "ERROR",
+            "class": "logging.FileHandler",
+            "formatter": "verbose",
+            "filename": os.path.join(BASE_DIR, "logs/faillog.log"),
+        },
+        "dberror": {
+            'level': "ERROR",
+            "class": "logging.FileHandler",
+            "formatter": "verbose",
+            "filename": os.path.join(BASE_DIR, "logs/dberror.log"),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': False,
+            'level': 'INFO',
+        },
+        'app': {
+            'handlers': ['console', 'log_file'],
+            'propagate': False,
+            'level': 'DEBUG' if DEBUG else 'INFO',
+        },
+        'django.request': {
+            'handlers': ['log_file'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        "faillog": {
+            "handlers": ['console', "faillog"],
+            "propagate": False,
+            "level": "ERROR",
+        },
+        "dberror": {
+            "handlers": ['console', "dberror"],
+            "propagate": False,
+            "level": "ERROR",
+        },
+    }
+}

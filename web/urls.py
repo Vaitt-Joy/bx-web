@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from web.views import accountViews, views, pluginViews
+from web.views import accountViews, views, pluginViews, apiViews
 
 urlpatterns = [
 
@@ -18,4 +18,6 @@ urlpatterns = [
     url(r'^account/([a-z]+)/$', accountViews.account, name='account'),
 
     url(r'^plugin/([a-z]+)/$', pluginViews.plugin, name='plugin'),
+    # api 接口开发
+    url(r'^api/ac/([a-zA-Z]+)', apiViews.api, name='ac'),
 ]

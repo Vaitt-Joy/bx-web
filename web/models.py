@@ -118,7 +118,7 @@ class Plugin(models.Model):
     """
     android 插件
     """
-    fileName = models.FileField(verbose_name='插件名称', max_length=100, )
+    pluginName = models.FileField(verbose_name='插件名称', max_length=100, )
     version = models.IntegerField(verbose_name='插件版本', default=1, )
     env = models.IntegerField(verbose_name='app环境,1.正式版本，22.开发环境', default=1, )
     fileType = models.CharField(verbose_name='plugin后缀名', max_length=20)
@@ -129,13 +129,17 @@ class Plugin(models.Model):
 
     class Meta:
         db_table = 'plugin'
-        unique_together = ("fileName", "version", "env")  # 这是重点
+        unique_together = ("pluginName", "version", "env")  # 这是重点
 
 
 class UpdateCount(models.Model):
     """
     更新计数
     """
+
+    class Meta:
+        db_table = 'update_count'
+
     currCount = models.IntegerField(default=0, verbose_name='当前次数')
     sumCount = models.IntegerField(default=0, verbose_name='总次数')
     uuidOrMd5 = models.CharField(verbose_name='唯一字段', unique=True, max_length=100)
