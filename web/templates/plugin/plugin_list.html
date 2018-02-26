@@ -28,7 +28,18 @@
                             <tr>
                                 {# table = ['id', 'fileName', 'md5', 'size', 'env', 'desc', 's3_repo_url', 'oss_repo_url']#}
                                 {% for ta in value %}
-                                    <td>{{ ta }}</td>
+                                    {% if ta == 'btn' %}
+                                        {% if operatingBtn %}
+                                            <td>
+                                                {% for btn in operatingBtn %}
+                                                    <a class="btn btn-default"
+                                                       href="{% url "plugin" btn %}?value={{ value.0 }}">{{ btn }}</a>
+                                                {% endfor %}
+                                            </td>
+                                        {% endif %}
+                                    {% else %}
+                                        <td>{{ ta }}</td>
+                                    {% endif %}
                                 {% endfor %}
 
                             </tr>

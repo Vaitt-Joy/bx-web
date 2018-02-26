@@ -20,10 +20,7 @@ from django.contrib import admin
 from BxWeb import settings
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^web/', include('web.urls')),
-    url(r'^$/', include('web.urls')),
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  url(r'^admin/', admin.site.urls),
+                  url(r'^web/', include('web.urls')),
+                  url(r'^$/', include('web.urls')),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

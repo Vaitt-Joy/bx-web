@@ -18,8 +18,9 @@ class AccountForm(forms.Form):
 class PluginForm(forms.Form):
     pluginEnvSelect = forms.ChoiceField(widget=forms.Select, choices=(('1', "正式环境"), ('2', "测试环境")), initial='1')
     pluginFile = forms.FileField(required=True)
-    desc = forms.CharField(
-        widget=forms.TextInput(
-            attrs={'id': 'desc', 'class': 'form-control', 'placeholder': 'Enter The Plugin Update Desc',
-                   'data-validate': 'Enter The Plugin Update Desc',
-                   'name': 'desc'}))
+    desc = forms.CharField(required=False,
+                           widget=forms.TextInput(
+                               attrs={'id': 'desc', 'class': 'form-control',
+                                      'placeholder': 'Enter The Plugin Update Desc',
+                                      'data-validate': 'Enter The Plugin Update Desc',
+                                      'name': 'desc'}))

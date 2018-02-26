@@ -2,6 +2,7 @@
 import os
 from django.shortcuts import render
 
+from BxWeb import settings
 from web.forms import PluginForm
 from web.models import Plugin, FileSystem
 from web.tools.PyTools import approximate_size
@@ -12,6 +13,8 @@ def plugin(req, method=''):
         return plugin_add(req)
     elif method == 'list':
         return plugin_list(req)
+    elif method == 'delete':
+        return plugin_delete(req)
     else:
         return render(req, "tempfile/baseImpl.html", {"html": "error/403.html", "title": "403", "nav_active": "403"})
 
@@ -41,7 +44,6 @@ def plugin_add(req):
                         # 存 本地
                         fileSys = FileSystem(localUrl=url, fileTableName=Plugin._meta.db_table)
                         fileSys.save()
-
                         plugin = Plugin(pluginName=newName, version=int(code), desc=desc,
                                         env=int(env), fileType=ext, md5=fileSys.uuidOrMd5)
                         plugin.save()
@@ -54,8 +56,21 @@ def plugin_add(req):
                   {"nav_active": "plugin-add", 'lf': lf, 'error_is_true': True, 'message': message})
 
 
+def plugin_delete(req):
+    if req.method == 'GET':
+        value = req.GET['value']
+        plugin = Plugin.objects.get(id=value[0])
+        if plugin:
+            file = FileSystem.objects.get(uuidOrMd5=plugin.md5)
+            if file:
+                file.delete()
+            plugin.delete()
+    return plugin_list(req)
+
+
 def plugin_list(req, page=0, pagecount=10):
-    table = ['id', 'pluginName', 'md5', 'size', 'env', 'desc', 's3_repo_url', 'oss_repo_url']
+    table = ['id', 'pluginName', 'md5', 'size', 'env', 'desc', 'url', 's3_repo_url', 'oss_repo_url', 'operating']
+    operatingBtn = ['delete']  # edit
     data = []
     try:
         plugins = Plugin.objects.order_by("version")[page: pagecount * (page + 1)]
@@ -67,11 +82,12 @@ def plugin_list(req, page=0, pagecount=10):
                 else:
                     env = '推荐更新'
                 size = approximate_size(file.size, False)
-                mapping = [value.id, value.pluginName, value.md5, size, env, value.desc, file.s3_url,
-                           file.oss_url]
+                mapping = [value.id, value.pluginName, value.md5, size, env, value.desc,
+                           file.localUrl, file.s3_url,
+                           file.oss_url, 'btn']
                 data.append(mapping)
     except Exception as e:
         print(e)
     return render(req, "plugin/plugin_list.html",
-                  {"nav_active": "plugin-list", "data": data, "table": table})
+                  {"nav_active": "plugin-list", "data": data, "table": table, "operatingBtn": operatingBtn})
     # return render(req, "plugin/plugin_list.html", {"nav_active": "plugin-list"})

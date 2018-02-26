@@ -24,7 +24,7 @@ SECRET_KEY = '-b@!5334t!=bzo@2i)w_7o^yevxh+3jtl7jtd*#==b=ph)#5bq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u'192.168.100.146', u'localhost', u'127.0.0.1']
 
 # Application definition
 
@@ -74,20 +74,20 @@ WSGI_APPLICATION = 'BxWeb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 #
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#         'OPTIONS': {
-#             'read_default_file': os.path.join(BASE_DIR, 'mysqlCon/my.cnf'),
-#         },
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'OPTIONS': {
+            'read_default_file': os.path.join(BASE_DIR, 'mysqlCon/my.cnf'),
+        },
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
