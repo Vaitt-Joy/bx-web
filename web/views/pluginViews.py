@@ -42,10 +42,10 @@ def plugin_add(req):
 
                     try:
                         # 存 本地
-                        fileSys = FileSystem(localUrl=url, fileTableName=Plugin._meta.db_table)
-                        fileSys.save()
-                        plugin = Plugin(pluginName=newName, version=int(code), desc=desc,
-                                        env=int(env), fileType=ext, md5=fileSys.uuidOrMd5)
+                        file_sys = FileSystem(localUrl=url, fileTableName=Plugin._meta.db_table)
+                        file_sys.save()
+                        plugin = Plugin(packageName=newName, version=int(code), desc=desc,
+                                        env=int(env), fileType=ext, md5=file_sys.uuidOrMd5)
                         plugin.save()
                         message = '上传成功!'
                     except Exception as e:
@@ -69,7 +69,7 @@ def plugin_delete(req):
 
 
 def plugin_list(req, page=0, pagecount=10):
-    table = ['id', 'pluginName', 'md5', 'size', 'env', 'desc', 'url', 's3_repo_url', 'oss_repo_url', 'operating']
+    table = ['id', 'packageName', 'md5', 'size', 'env', 'desc', 'url', 's3_repo_url', 'oss_repo_url', 'operating']
     operatingBtn = ['delete']  # edit
     data = []
     try:
@@ -82,7 +82,7 @@ def plugin_list(req, page=0, pagecount=10):
                 else:
                     env = '推荐更新'
                 size = approximate_size(file.size, False)
-                mapping = [value.id, value.pluginName, value.md5, size, env, value.desc,
+                mapping = [value.id, value.packageName, value.md5, size, env, value.desc,
                            file.localUrl, file.s3_url,
                            file.oss_url, 'btn']
                 data.append(mapping)
