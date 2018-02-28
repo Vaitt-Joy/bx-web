@@ -35,7 +35,7 @@ services:
 
   nginx:
       restart: always
-      build: /code/nginx
+      build: /nginx
       ports:
         - "80:80"
       # nginx容器挂载在与web容器相同的容器卷上
