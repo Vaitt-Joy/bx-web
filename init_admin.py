@@ -9,4 +9,4 @@ from django.contrib.auth.models import User
 try:
     admin = User.objects.get(username='viczhou')
 except:
-    User.objects.create_superuser('viczhou', 'tom@example.com', 'android123')
+    User.objects.create_superuser('viczhou', 'vic@example.com', 'android123')
