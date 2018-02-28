@@ -1,6 +1,5 @@
 # coding=utf-8
 import hashlib
-from datetime import datetime
 
 from django.db import models
 
@@ -110,8 +109,8 @@ class AppUpdateLog(models.Model):
     size = models.CharField(verbose_name='大小', max_length=20)
     md5 = models.CharField(verbose_name='md5', max_length=50)
 
-    createTime = models.DateTimeField(verbose_name='发表时间', default=datetime.now(), blank=True, editable=False)
-    updateTime = models.DateTimeField(verbose_name='更新时间', auto_now=True, blank=True)
+    createTime = models.DateTimeField(verbose_name='发表时间', blank=True, editable=False)
+    updateTime = models.DateTimeField(verbose_name='更新时间', auto_now=True)
 
 
 class Plugin(models.Model):
