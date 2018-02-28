@@ -42,7 +42,9 @@ def query_plugin(req):
                 version = d['version']
                 env = d['env']
                 if package_name and version and env:
-                    data.append(get_plugin_info(env, version, package_name))
+                    da = get_plugin_info(env, version, package_name)
+                    if da:
+                        data.append(da)
         except Exception as e:
             param = '服务器异常,请稍候重试'
             msg = -1
@@ -62,7 +64,7 @@ def get_plugin_info(env, version, package_name):
                 file = FileSystem.objects.get(uuidOrMd5=plugin.md5)
                 return {'size': approximate_size(file.size, False), 'md5': plugin.md5, 'desc': plugin.desc,
                         's3_url': file.s3_url, 'oss_url': file.oss_url, 'packageName': package_name,
-                        'url': file.localUrl.url}
+                        'pluginName': plugin.pluginName, 'version': plugin.version, 'url': file.localUrl.url}
     except Exception as e:
         print(e)
     return None

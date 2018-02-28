@@ -119,6 +119,7 @@ class Plugin(models.Model):
     android 插件
     """
     packageName = models.CharField(verbose_name='包名', max_length=100, )
+    pluginName = models.CharField(verbose_name='plugin name', max_length=100, )
     version = models.IntegerField(verbose_name='插件版本', default=1, )
     env = models.IntegerField(verbose_name='app环境,1.正式版本，22.开发环境', default=1, )
     fileType = models.CharField(verbose_name='plugin后缀名', max_length=20)
