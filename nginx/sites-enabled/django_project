@@ -9,9 +9,9 @@ server {
         alias /code/static;
     }
 
-    location /media {
-        internal;
-        root /home;
+    location ~ ^/media/?(.*)$ {
+            # Fallback for projects still using MEDIA_ROOT = BASE_DIR/mediafiles
+            try_files /media/$1 /mediafiles/$1 =404;
     }
 
     location / {
