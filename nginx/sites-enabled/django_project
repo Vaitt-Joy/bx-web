@@ -10,7 +10,8 @@ server {
     }
 
     location /media {
-        alias /code/media;
+        internal;
+        root /home;
     }
 
     location / {
