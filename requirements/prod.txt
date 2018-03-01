@@ -1,9 +1,7 @@
 django==2.0.2
 mysqlclient==1.3.12
-
 boto3
 django-storages
-
 django-oss-storage
-
 django-redis
+gunicorn
