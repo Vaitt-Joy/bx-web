@@ -1,6 +1,5 @@
 FROM python:3
 ENV PYTHONUNBUFFERED 1
-RUN apt-get install gunicorn
 RUN mkdir /code
 WORKDIR /code
 ADD requirements/prod.txt /code/
