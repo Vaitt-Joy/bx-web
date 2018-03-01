@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8824770e-62fb-43cf-9da1-1ddfc3626075" name="Default" comment="fix config">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+    <list default="true" id="8824770e-62fb-43cf-9da1-1ddfc3626075" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
+      <change beforePath="$PROJECT_DIR$/nginx/sites-enabled/django_project" afterPath="$PROJECT_DIR$/nginx/sites-enabled/django_project" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,11 +75,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18">
               <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BxWeb/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="26" column="82" lean-forward="false" selection-start-line="26" selection-start-column="82" selection-end-line="26" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="django_project" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nginx/sites-enabled/django_project">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -190,14 +209,14 @@
         <option value="$PROJECT_DIR$/web/views/pluginViews.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/logs/django.log" />
-        <option value="$PROJECT_DIR$/BxWeb/settings.py" />
         <option value="$PROJECT_DIR$/init_admin.py" />
         <option value="$PROJECT_DIR$/requirements/prod.txt" />
         <option value="$PROJECT_DIR$/nginx/nginx.conf" />
-        <option value="$PROJECT_DIR$/nginx/sites-enabled/django_project" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Dockerfile" />
+        <option value="$PROJECT_DIR$/BxWeb/settings.py" />
+        <option value="$PROJECT_DIR$/nginx/sites-enabled/django_project" />
       </list>
     </option>
   </component>
@@ -238,6 +257,11 @@
             <path>
               <item name="bx-web" type="b2602c69:ProjectViewProjectNode" />
               <item name="bx-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bx-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bx-web" type="462c0819:PsiDirectoryNode" />
+              <item name="BxWeb" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bx-web" type="b2602c69:ProjectViewProjectNode" />
@@ -520,7 +544,7 @@
       <workItem from="1519795255490" duration="2799000" />
       <workItem from="1519798223144" duration="9490000" />
       <workItem from="1519821993590" duration="4343000" />
-      <workItem from="1519883173521" duration="246000" />
+      <workItem from="1519883173521" duration="1377000" />
     </task>
     <task id="LOCAL-00001" summary="add login">
       <created>1519394499427</created>
@@ -592,11 +616,32 @@
       <option name="project" value="LOCAL" />
       <updated>1519883358815</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix config">
+      <created>1519883422298</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1519883422298</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix config">
+      <created>1519883642060</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1519883642060</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix config">
+      <created>1519884018554</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1519884018554</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61148000" />
+    <option name="totallyTimeSpent" value="62279000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="-4" width="1869" height="1084" extended-state="6" />
@@ -955,14 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BxWeb/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1984">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b1a84d9b-6c6a-4ecb-9c77-93956aaa54b0/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -991,14 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nginx/sites-enabled/django_project">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="23" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1047,6 +1076,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BxWeb/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="82" lean-forward="false" selection-start-line="26" selection-start-column="82" selection-end-line="26" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nginx/sites-enabled/django_project">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
           <folding />
         </state>
       </provider>
