@@ -1,3 +1,7 @@
 DROP DATABASE IF EXISTS bxvip_android_web;
 
 CREATE DATABASE bxvip_android_web CHARACTER SET 'utf8';
+
+DROP DATABASE IF EXISTS bxvip_android_web_dev;
+
+CREATE DATABASE bxvip_android_web_dev CHARACTER SET 'utf8';

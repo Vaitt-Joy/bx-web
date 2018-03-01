@@ -18,9 +18,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from BxWeb import settings
+from web.views.errorViews import permission_denied, page_not_found, page_error
 
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
                   url(r'^web/', include('web.urls')),
                   url(r'^$/', include('web.urls')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler403 = permission_denied
+handler404 = page_not_found
+handler500 = page_error

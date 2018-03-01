@@ -75,7 +75,7 @@ def plugin_delete(req):
 
 
 def plugin_list(req, page=0, pagecount=10):
-    table = ['id', 'packageName', 'pluginName', 'md5', 'size', 'env', 'code', 'desc', 'url', 's3_repo_url',
+    table = ['id', 'packageName', 'pluginName', 'md5', 'size', 'env', 'version', 'desc', 'url', 's3_repo_url',
              'oss_repo_url', 'operating']
     operating_btn = ['delete']  # edit
     data = []
@@ -85,9 +85,9 @@ def plugin_list(req, page=0, pagecount=10):
             file = FileSystem.objects.get(uuidOrMd5=value.md5)
             if file:
                 if value.env == 1:
-                    env = '强制更新'
+                    env = '正式站'
                 else:
-                    env = '推荐更新'
+                    env = '测试站'
                 size = approximate_size(file.size, False)
                 mapping = [value.id, value.packageName, value.pluginName, value.md5, size, env, value.version,
                            value.desc, file.localUrl, file.s3_url, file.oss_url, 'btn']

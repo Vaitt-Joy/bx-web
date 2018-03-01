@@ -80,14 +80,25 @@ WSGI_APPLICATION = 'BxWeb.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'mysqlCon/my.cnf'),
-        },
+
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+            'OPTIONS': {
+                'read_default_file': os.path.join(BASE_DIR, 'mysqlCon/my.dev.cnf'),
+            },
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+            'OPTIONS': {
+                'read_default_file': os.path.join(BASE_DIR, 'mysqlCon/my.cnf'),
+            },
+        }
+    }
 
 # cache
 CACHES = {
